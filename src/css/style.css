@@ -1,0 +1,25 @@
+.card{
+    border: 4px solid black;
+    width: 200px;
+    padding: 20px 20px 0px 20px;
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column;
+}
+
+.card > img{
+    /* border: 1px solid red; */
+    width: 180px;
+}
+
+.card > p{
+    text-align: center;
+    padding: 20px 0;
+    background-color: goldenrod;
+    border: 4px solid black;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+}
