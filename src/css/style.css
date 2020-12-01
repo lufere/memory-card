@@ -11,7 +11,7 @@
 
 .card > img{
     /* border: 1px solid red; */
-    width: 180px;
+    height: 180px;
 }
 
 .card > p{
@@ -22,4 +22,12 @@
     width: 100%;
     font-size: 24px;
     font-weight: 700;
+}
+
+.teamContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.teamContainer > div{
+    margin: 20px 20px;
 }

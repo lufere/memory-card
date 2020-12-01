@@ -2,12 +2,15 @@ import React from 'react';
 
 const Card = props => {
     return(
-        <div className = 'card'>
+        <div
+        className = 'card'
+        onClick = {props.onClick}
+        >
             <img
-                src = 'https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png'
+                src = {props.badge}
                 alt = 'Team Badge'
             />
-            <p>Arsenal</p>
+            <p>{props.name}</p>
         </div>
     )
 }
