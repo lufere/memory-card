@@ -5,6 +5,7 @@ const Card = props => {
         <div
         className = 'card'
         onClick = {props.onClick}
+        id = {props.name}
         >
             <img
                 src = {props.badge}

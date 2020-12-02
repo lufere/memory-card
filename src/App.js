@@ -20,8 +20,10 @@ function App() {
   ]
 
   const [cards, setCards] = useState(teams);
+  const [correctCards, setCorrectCards] = useState([]);
+  const [score, setScore] = useState(0);
 
-  function randomizeCards(){
+  function randomize(){
     // document.querySelectorAll('.card').forEach(card=>card.style.order=(Math.floor(Math.random() * (13 - 0) + 0)))
     let newTeams = [];
     let deck = [...teams];
@@ -35,9 +37,15 @@ function App() {
     return newTeams
   }
   
-  function testF(){
-    // console.log(randomizeCards())
-    setCards(randomizeCards());
+  function shuffleCards(event){
+    let team = event.currentTarget.id;
+    if(correctCards.indexOf(team) === -1){
+      setScore(score+1)
+      correctCards.push(team);
+    }else{
+      setScore(0);
+    }
+    setCards(randomize());
   }
 
   const teamList = cards.map((team) =>
@@ -45,16 +53,17 @@ function App() {
       key ={team.name}
       name={team.name}
       badge={team.badge}
-      onClick={testF}
+      onClick={shuffleCards}
   />
   );
 
   useEffect(()=>{
-    testF();
+    setCards(randomize());
   }, []);
 
   return (
     <div className="App">
+      {score}
       <div className='teamContainer'>
         {teamList}
       </div>
