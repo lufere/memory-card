@@ -22,6 +22,7 @@ function App() {
   const [cards, setCards] = useState(teams);
   const [correctCards, setCorrectCards] = useState([]);
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   function randomize(){
     // document.querySelectorAll('.card').forEach(card=>card.style.order=(Math.floor(Math.random() * (13 - 0) + 0)))
@@ -37,13 +38,15 @@ function App() {
     return newTeams
   }
   
-  function shuffleCards(event){
+  function clickCard(event){
     let team = event.currentTarget.id;
     if(correctCards.indexOf(team) === -1){
       setScore(score+1)
       correctCards.push(team);
     }else{
+      if(score>highScore)setHighScore(score);
       setScore(0);
+      setCorrectCards([]);
     }
     setCards(randomize());
   }
@@ -53,7 +56,7 @@ function App() {
       key ={team.name}
       name={team.name}
       badge={team.badge}
-      onClick={shuffleCards}
+      onClick={clickCard}
   />
   );
 
@@ -63,7 +66,8 @@ function App() {
 
   return (
     <div className="App">
-      {score}
+      <p>{score}</p>
+      <p>{highScore}</p>
       <div className='teamContainer'>
         {teamList}
       </div>
