@@ -66,8 +66,11 @@ function App() {
 
   return (
     <div className="App">
-      <p>{score}</p>
-      <p>{highScore}</p>
+      <div className='scores'>
+        {/* <p>Choose a team only once and reach a score of 14!</p> */}
+        <p>Score: {score}</p>
+        <p>High Score: {highScore}</p>
+      </div>
       <div className='teamContainer'>
         {teamList}
       </div>
